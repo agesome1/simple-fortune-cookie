@@ -37,7 +37,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: agesome2/backend:latest
+          tags: agesome2/backend:latest,agesome2/backend:${GITHUB_SHA}
           target: backend
   Frontend:
     needs: Build-and-Test
@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: agesome2/frontend:latest
+          tags: agesome2/frontend:latest,agesome2/frontend:${GITHUB_SHA}
           target: frontend
   Deploy:
     runs-on: self-hosted
