@@ -6,4 +6,6 @@ jobs:
     container: agesome2/backend:latest
     steps:
       - name: Setup Backend
+        uses: docker container run
+      - name: Curl
         uses: curl -s localhost:8080 | grep h1
