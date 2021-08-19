@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: frontend
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - image: agesome2/frontend:latest
+        name: frontend
+        env:
+        - name: BACKEND_DNS
+          value: "backend.user19.svc.cluster.local"
+        - name: BACKEND_PORT
+          value: "9000"
+        resources: {}
+status: {}
