@@ -58,5 +58,6 @@ jobs:
           target: frontend
   Deploy:
     runs-on: self-hosted
+    needs: [Frontend, Backend]
     steps:
       - run: kubectl apply -f k_yaml/
