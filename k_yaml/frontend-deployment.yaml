@@ -22,7 +22,7 @@ spec:
         name: frontend
         env:
         - name: BACKEND_DNS
-          value: "backend.user19.svc.cluster.local"
+          value: "backend"
         - name: BACKEND_PORT
           value: "9000"
         resources: {}

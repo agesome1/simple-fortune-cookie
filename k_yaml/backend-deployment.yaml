@@ -22,6 +22,6 @@ spec:
         name: backend
         env:
         - name: REDIS_DNS
-          value: "redis.user19.svc.cluster.local"
+          value: "redis"
         resources: {}
 status: {}
