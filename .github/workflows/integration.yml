@@ -19,7 +19,3 @@ jobs:
         run: cd backend/ && go test
       - name: test frontend
         run: cd frontend/ && go test
-  test:
-    runs-on: self-hosted
-    steps:
-      - run: kubectl apply -f k_yaml/

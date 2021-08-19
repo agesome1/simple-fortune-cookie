@@ -56,3 +56,7 @@ jobs:
           push: true
           tags: agesome2/frontend:latest
           target: frontend
+  Deploy:
+    runs-on: self-hosted
+    steps:
+      - run: kubectl apply -f k_yaml/
