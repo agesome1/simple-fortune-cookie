@@ -2,8 +2,8 @@ name: Go CD
 on: push
 jobs:
   Bootup-and-Curl:
-  runs-on: ubuntu-latest
-  container: agesome2/backend:latest
-  steps:
-    - name: Setup Backend
-      uses: curl -s localhost:8080 | grep h1
+    runs-on: ubuntu-latest
+    container: agesome2/backend:latest
+    steps:
+      - name: Setup Backend
+        uses: curl -s localhost:8080 | grep h1
