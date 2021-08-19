@@ -9,7 +9,7 @@ on:
       - main
 jobs:
   Build-and-Test:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     container: golang:1.16.7
     steps:
       - name: setup
@@ -24,7 +24,7 @@ jobs:
         run: cd frontend/ && go test
   Backend:
     needs: Build-and-Test
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: setup
         uses: actions/checkout@v2
@@ -41,7 +41,7 @@ jobs:
           target: backend
   Frontend:
     needs: Build-and-Test
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: setup
         uses: actions/checkout@v2
@@ -58,5 +58,6 @@ jobs:
           target: frontend
   Deploy:
     runs-on: self-hosted
+    needs: [Frontend, Backend]
     steps:
       - run: kubectl apply -f k_yaml/
