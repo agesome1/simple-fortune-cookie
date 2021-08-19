@@ -20,5 +20,8 @@ spec:
       containers:
       - image: agesome2/backend:latest
         name: backend
+        env:
+        - name: REDIS_DNS
+          value: "redis.user19.svc.cluster.local"
         resources: {}
 status: {}
