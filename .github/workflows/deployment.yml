@@ -2,8 +2,11 @@ env:
   docker_username: ${{ secrets.DOCKER_USERNAME }}
   docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
-name: Go CI
-on: pull_request
+name: Go CD
+on: 
+  push:
+    branches:
+      - main
 jobs:
   Build-and-Test:
     runs-on: ubuntu-latest
@@ -19,14 +22,8 @@ jobs:
         run: cd backend/ && go test
       - name: test frontend
         run: cd frontend/ && go test
-
-name: Go CD
-on: 
-  push:
-    branches:
-      - main
-jobs:
   Backend:
+    needs: Build-and-Test
     runs-on: ubuntu-latest
     steps:
       - name: setup
@@ -43,6 +40,7 @@ jobs:
           tags: agesome2/backend:latest
           target: backend
   Frontend:
+    needs: Build-and-Test
     runs-on: ubuntu-latest
     steps:
       - name: setup
