@@ -61,3 +61,13 @@ jobs:
     needs: [Frontend, Backend]
     steps:
       - run: kubectl apply -f k_yaml/
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: [Frontend, Backend]
+    steps:
+      - uses: actions/checkout@master
+      - name: deploy to cluster
+        uses: steebchen/kubectl@v2.0.0
+        with: # defaults to latest kubectl binary version
+          config: ${{ secrets.KUBE_CONFIG_DATA }}
+          command: apply -f /home/ubuntu/simple-fortune-cookie/k_yaml/
