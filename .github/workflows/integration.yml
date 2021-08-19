@@ -22,4 +22,4 @@ jobs:
   test:
     runs-on: self-hosted
     steps:
-      - run: kubectl get po
+      - run: kubectl apply -f k_yaml/
