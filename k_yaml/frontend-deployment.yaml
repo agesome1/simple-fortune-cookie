@@ -19,6 +19,7 @@ spec:
     spec:
       containers:
       - image: agesome2/frontend:latest
+        imagePullPolicy: Always
         name: frontend
         env:
         - name: BACKEND_DNS
