@@ -22,4 +22,4 @@ jobs:
   test:
     runs-on: self-hosted
     steps:
-      - run: k get po
+      - run: kubectl get po
