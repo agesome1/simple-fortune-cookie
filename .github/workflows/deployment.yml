@@ -1,7 +1,6 @@
 env:
   docker_username: ${{ secrets.DOCKER_USERNAME }}
   docker_password: ${{ secrets.DOCKER_PASSWORD }}
-  commit_sha: ${{ GITHUB_SHA }}
 
 name: Go CD
 on: 
@@ -38,7 +37,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: agesome2/backend:latest,agesome2/backend:${{ env.commit_sha }}
+          tags: agesome2/backend:latest,agesome2/backend:${{ github.sha }}
           target: backend
   Frontend:
     needs: Build-and-Test
@@ -55,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: agesome2/frontend:latest,agesome2/frontend:${{ env.commit_sha }}
+          tags: agesome2/frontend:latest,agesome2/frontend:${{ github.sha }}
           target: frontend
   Deploy:
     runs-on: self-hosted
