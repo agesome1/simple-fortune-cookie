@@ -9,5 +9,7 @@ jobs:
         run: docker build -t ubuntu/backend
       - name: Run Backend
         run: docker run ubuntu/backend
+      - name: Run Frontend
+        run: docker run ubuntu/frontend
       - name: Curl
         run: curl -s localhost:8080 | grep h1

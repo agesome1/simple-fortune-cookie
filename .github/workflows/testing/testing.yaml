@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  name: deployment-a  
+  labels:    
+    app: deployment-a
+spec:
+  selector:
+    matchLabels:
+      app: deployment-a  
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deployment-a
+    spec:
+      containers:
+      - image: agesome2/backend:latest
+        name: devopsacademya
